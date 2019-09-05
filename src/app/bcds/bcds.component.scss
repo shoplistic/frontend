@@ -1,0 +1,147 @@
+.barcode {
+  position: fixed;
+  top: 70px;
+  left: 10px;
+  font-size: 16pt;
+  background-color: #fff;
+  z-index: 1000;
+  padding: 0.2em;
+}
+
+.error {
+  background-color: #1e1e1e;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+
+  .error-msg {
+    display: block;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    color: #eee;
+  }
+}
+
+div.addModal {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  div.content {
+    display: block;
+    position: fixed;
+    font-size: 12pt;
+    padding: 1em;
+    border-radius: 2px;
+    background-color: #fff;
+    top: 100px;
+    width: calc(100% - 4em - 40px);
+    max-width: 600px;
+    transform: translateX(-50%);
+    left: 50%;
+    -webkit-box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.75);
+    z-index: 10000000;
+
+    // p {
+    //   font-size: 12pt;
+    //   margin-bottom: 2em;
+    // }
+
+    ul {
+      max-width: 600px;
+      margin: auto;
+
+      li {
+
+        .input-group {
+
+          display: block;
+          width: 100%;
+
+          label {
+            display: block;
+            font-size: 10pt;
+          }
+
+          input {
+            display: block;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #2196f3;
+            font-size: 12pt;
+            outline: none;
+            padding: 0.4em 0;
+
+            &:read-only {
+              border-color: #333;
+              color: #333;
+            }
+
+            &.invalid {
+              border-color: #a00;
+            }
+
+          }
+
+        }
+
+        button {
+            margin-left: 10px;
+
+            &:first-of-type {
+              margin-left: auto;
+            }
+
+            &.delete {
+              margin-right: auto;
+              margin-left: 0;
+            }
+
+        }
+
+        h2 {
+          font-size: 1.4em;
+          margin: 0;
+        }
+
+        small {
+          margin-top: 1em;
+          display: block;
+          color: #a00;
+        }
+
+      }
+
+    }
+
+    div.ilb {
+
+      text-align: right;
+
+      button {
+        display: inline-block;
+      }
+
+    }
+
+  }
+
+  div.shadow {
+    display: block;
+    top: 0;
+    left: 0;
+    position: fixed;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 9999999;
+  }
+
+}

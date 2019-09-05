@@ -1,0 +1,53 @@
+<!-- <div [hidden]="!barcodeValue" class="barcode">
+  {{ barcode }}
+</div> -->
+
+<div id="scanner"></div>
+
+<div *ngIf="err" class="error">
+  <div class="error-msg">
+    {{ err }}
+  </div>
+</div>
+
+<div #addModal class="addModal">
+  <div class="shadow"></div>
+  <div class="content">
+    <form #bcdsForm="ngForm">
+      <ul class="mdl-list">
+        <li class="mdl-list__item">
+          <div class="input-group">
+            <label for="barcode">Barcode</label>
+            <input type="text" id="barcode" name="barcode" required readonly [(ngModel)]="item.barcode" #barcode="ngModel" />
+          </div>
+        </li>
+        <li class="mdl-list__item">
+          <div class="input-group">
+            <label for="display_name">Display name</label>
+            <input #af type="text" id="display_name" name="badisplay_namercode" required [(ngModel)]="item.display_name" #display_name="ngModel" />
+          </div>
+        </li>
+        <li class="mdl-list__item">
+          <div class="input-group">
+            <label for="manufacturer">Manufacturer</label>
+            <input type="text" id="manufacturer" name="manufacturer" required [(ngModel)]="item.manufacturer" #manufacturer="ngModel" />
+          </div>
+        </li>
+        <li class="mdl-list__item">
+          <button *ngIf="!isNew" class="mdl-button mdl-button--accent delete" (click)="submiteDelete(item)">
+            Delete
+          </button>
+          <button class="mdl-button mdl-button--accent" (click)="toggleModal()">
+            Cancel
+          </button>
+          <button *ngIf="isNew" class="mdl-button mdl-button--raised mdl-button--colored" (click)="onSubmit(item)">
+            Add item
+          </button>
+          <button *ngIf="!isNew" class="mdl-button mdl-button--raised mdl-button--colored" (click)="onSubmit(item)">
+            Save
+          </button>
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>

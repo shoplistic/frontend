@@ -1,0 +1,34 @@
+<img src="/assets/logo-1kx1k.png" alt="shoplistic logo" />
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+  <ul class="mdl-list">
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input #af id="username" type="text" name="username" autocomplete="username" required [(ngModel)]="loginData.username" #username="ngModel" pattern="[a-zA-Z0-9-_]{4,30}" [class.invalid]="username.invalid && username.touched && username.dirty">
+        <!-- <small [class.hidden]="username.valid || username.untouched || username.pristine">Hello!</small> -->
+        <small [hidden]="username.valid || username.untouched || username.pristine">Username have to be betwen 4 and 30 characters</small>
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="password">Password</label>
+        <!-- <input type="password" id="password" required autocomplete="current-password" [(ngModel)]="loginData.password" /> -->
+        <input id="password" type="password" name="password" autocomplete="current-password" required [(ngModel)]="loginData.password" #password="ngModel" pattern=".{8,1000}" [class.invalid]="password.invalid && password.touched && password.dirty">
+        <small [hidden]="password.valid || password.untouched || password.pristine">Password have to be betwen 8 and 1000 characters</small>
+      </div>
+    </li>
+    <li class="mdl-list__item buttons">
+      <div class="right-align">
+        <button class="mdl-button" type="button" routerLink="/register">
+          Register
+        </button>
+        <button class="mdl-button mdl-button--raised mdl-button--colored" type="submit" [disabled]="loginForm.form.invalid || submitted">
+          Log in
+        </button>
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <span class="error">{{ error }}</span>
+    </li>
+  </ul>
+</form>

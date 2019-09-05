@@ -1,0 +1,80 @@
+.barcode {
+  position: fixed;
+  top: 70px;
+  left: 10px;
+  font-size: 16pt;
+  background-color: #fff;
+  z-index: 1000;
+  padding: 0.2em;
+}
+
+.error {
+  background-color: #1e1e1e;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+
+  .error-msg {
+    display: block;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    color: #eee;
+  }
+}
+
+div.addModal {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  div.content {
+    display: block;
+    position: fixed;
+    font-size: 12pt;
+    padding: 2em;
+    border-radius: 2px;
+    background-color: #fff;
+    top: 100px;
+    width: calc(100% - 4em - 40px);
+    max-width: 600px;
+    transform: translateX(-50%);
+    left: 50%;
+    -webkit-box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.75);
+    z-index: 10000000;
+
+    p {
+      font-size: 12pt;
+      margin-bottom: 2em;
+    }
+
+    div.ilb {
+
+      text-align: right;
+
+      button {
+        display: inline-block;
+      }
+
+    }
+
+  }
+
+  div.shadow {
+    display: block;
+    top: 0;
+    left: 0;
+    position: fixed;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 9999999;
+  }
+
+}

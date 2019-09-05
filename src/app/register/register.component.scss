@@ -1,0 +1,64 @@
+ul {
+  max-width: 600px;
+  margin: auto;
+
+  li {
+
+    .input-group {
+
+      display: block;
+      width: 100%;
+
+      label {
+        display: block;
+        font-size: 11pt;
+      }
+
+      input {
+        display: block;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #2196f3;
+        font-size: 12pt;
+        outline: none;
+        padding: 0.4em 0;
+
+        &.invalid {
+          border-color: #a00;
+        }
+
+      }
+
+      small {
+        margin-top: 1em;
+        display: block;
+        color: #a00;
+      }
+
+    }
+
+    &.buttons {
+      text-align: right !important;
+
+      .right-align {
+        margin-left: auto;
+
+        button {
+          margin-left: 20px;
+        }
+
+      }
+
+    }
+
+    .error {
+      color: #a00;
+    }
+
+    .ok {
+      color: #0a0;
+    }
+
+  }
+
+}

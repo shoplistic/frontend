@@ -1,0 +1,31 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+  <ul class="mdl-list">
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="display_name">Name</label>
+        <!-- <input (change)="fill()" (input)="search()" #af list="item-name-ac" name="display_name" type="text" id="display_name" autocomplete="item-name" required [(ngModel)]="item.display_name" #display_name="ngModel" [class.invalid]="display_name.invalid && display_name.touched && display_name.dirty" pattern="^[^ ][\w\W ]*[^ ]" /> -->
+        <input (change)="fill()" (input)="search()" #af list="item-name-ac" name="display_name" type="text" id="display_name" autocomplete="off" required [(ngModel)]="item.display_name" #display_name="ngModel" [class.invalid]="display_name.invalid && display_name.touched && display_name.dirty" pattern="^[^ ][\w\W ]*" />
+        <datalist id="item-name-ac">
+          <option *ngFor="let o of datalist" [value]="o.display_name">{{ o.display_name }}</option>
+        </datalist>
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="manufacturer">Manufacturer</label>
+        <input name="manufacturer" type="text" id="manufacturer" autocomplete="manufacturer" [(ngModel)]="item.manufacturer" #manufacturer="ngModel" [class.invalid]="manufacturer.invalid && manufacturer.touched && manufacturer.dirty" pattern="^[^ ][\w\W ]*" />
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="amount">Amount</label>
+        <input name="amount" type="number" id="amount" autocomplete="amount" required [(ngModel)]="item.amount" #amount="ngModel" min="1" max="10000" />
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <button class="mdl-button mdl-button--raised mdl-button--colored" type="submit" [disabled]="loginForm.form.invalid">
+        Add item
+      </button>
+    </li>
+  </ul>
+</form>

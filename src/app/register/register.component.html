@@ -1,0 +1,45 @@
+<form #registerForm="ngForm">
+  <ul class="mdl-list">
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input #af id="username" type="text" name="username" autocomplete="username" required [(ngModel)]="registerData.username" #username="ngModel" pattern="[a-zA-Z0-9-_]{4,30}" [class.invalid]="username.invalid && username.touched && username.dirty">
+        <!-- <small [class.hidden]="username.valid || username.untouched || username.pristine">Hello!</small> -->
+        <small [hidden]="username.valid || username.untouched || username.pristine">Username have to be betwen 4 and 30 characters</small>
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="password">Password</label>
+        <!-- <input type="password" id="password" required autocomplete="current-password" [(ngModel)]="registerData.password" /> -->
+        <input id="password" type="password" name="password" autocomplete="new-password" required [(ngModel)]="registerData.password" #password="ngModel" pattern=".{8,1000}" [class.invalid]="password.invalid && password.touched && password.dirty">
+        <small [hidden]="password.valid || password.untouched || password.pristine">Password have to be betwen 8 and 1000 characters</small>
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="password_repeat">Repeat Password</label>
+        <!-- <input type="password" id="password" required autocomplete="current-password" [(ngModel)]="registerData.password" /> -->
+        <input id="password_repeat" type="password" name="password_repeat" autocomplete="new-password" required [(ngModel)]="registerData.password_repeat" #password_repeat="ngModel" pattern=".{8,1000}" [class.invalid]="password.value !== password_repeat.value && password.touched && password.dirty">
+        <small [hidden]="password_repeat.value === password.value || !password_repeat.dirty">Password does not match</small>
+      </div>
+    </li>
+    <li class="mdl-list__item buttons">
+      <div class="right-align">
+        <!-- <button (click)="login()" class="mdl-button" type="button" routerLink="/login"> -->
+        <button (click)="login()" type="button" class="mdl-button" type="button">
+          Log in
+        </button>
+        <!-- <button class="mdl-button mdl-button--raised mdl-button--colored" type="submit" [disabled]="registerForm.form.invalid || submitted || password.value !== password_repeat.value"> -->
+        <button (click)="re.execute()" type="button" class="mdl-button mdl-button--raised mdl-button--colored" [disabled]="registerForm.form.invalid || submitted || password.value !== password_repeat.value">
+          Register
+        </button>
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <span *ngIf="error" class="error">{{ error }}</span>
+      <span *ngIf="ok" class="ok">{{ ok }}</span>
+    </li>
+  </ul>
+  <re-captcha #re (resolved)="register()" [(ngModel)]="registerData.captcha" name="captcha" size="invisible" [siteKey]="siteKey"></re-captcha>
+</form>

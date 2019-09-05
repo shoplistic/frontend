@@ -1,0 +1,40 @@
+ul {
+  max-width: 600px;
+  margin: auto;
+
+  li {
+
+    .input-group {
+
+      display: block;
+      width: 100%;
+
+      label {
+        display: block;
+        font-size: 10pt;
+      }
+
+      input {
+        display: block;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #2196f3;
+        font-size: 12pt;
+        outline: none;
+        padding: 0.4em 0;
+
+        &.invalid {
+          border-color: #a00;
+        }
+
+      }
+
+    }
+
+    button {
+      margin-left: auto;
+    }
+
+  }
+
+}

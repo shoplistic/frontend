@@ -1,0 +1,26 @@
+<ul class="mdl-list" *ngIf="shoppingList.length > 0 && !error">
+  <li class="mdl-list__item mdl-list__item--two-line" *ngFor="let item of shoppingList">
+    <span class="mdl-list__item-primary-content">
+      <!-- <i class="material-icons mdl-list__item-avatar">person</i> -->
+      <span>{{ item.display_name }}</span>
+      <span class="mdl-list__item-sub-title">{{ item.manufacturer ? item.manufacturer + ',' : '' }} {{ item.amount }} pcs</span>
+    </span>
+    <span class="mdl-list__item-secondary-content">
+      <button class="mdl-list__item-secondary-action" (click)="removeItem(item._id)"><i class="material-icons">delete</i></button>
+    </span>
+  </li>
+</ul>
+
+<div *ngIf="shoppingList.length == 0 && !error">
+  <i class="material-icons">check_circle_outline</i>
+  <p>You're done!</p>
+</div>
+
+<div *ngIf="error">
+  <i class="material-icons">error_outline</i>
+  <p>Error loading shopping list</p>
+</div>
+
+<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--primary refresh-fab" (click)="fetchItems(true)">
+  <i class="material-icons">refresh</i>
+</button>

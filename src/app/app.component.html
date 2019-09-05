@@ -1,0 +1,44 @@
+<div #mdll class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">{{ title }}</span>
+      <div class="mdl-layout-spacer"></div>
+      <!-- <nav class="mdl-navigation" *ngIf="router.url !== '/login' && router.url !== '/register'"> -->
+      <nav class="mdl-navigation" *ngIf="loggedIn">
+        <!-- <a class="mdl-navigation__link"><i class="material-icons">add</i></a> -->
+        <a *ngIf="router.url !== '/add'" class="mdl-navigation__link" routerLink="/add"><i class="material-icons">add</i></a>
+        <a *ngIf="router.url === '/add'" class="mdl-navigation__link" routerLink="/"><i class="material-icons">list_alt</i></a>
+        <a *ngIf="router.url !== '/scanner'" class="mdl-navigation__link" routerLink="/scanner"><i class="material-icons">camera_alt</i></a>
+        <a *ngIf="router.url === '/scanner'" class="mdl-navigation__link" routerLink="/"><i class="material-icons">list_alt</i></a>
+      </nav>
+    </div>
+  </header>
+  <div #sidebar class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Shoplistic</span>
+    <nav class="mdl-navigation">
+      <a *ngIf="pwa.prompt" class="mdl-navigation__link" (click)="showInstallPrompt()">Install app</a>
+      <a *ngIf="loggedIn" class="mdl-navigation__link" routerLink="/">Shoppig list</a>
+      <a *ngIf="loggedIn" class="mdl-navigation__link" routerLink="/add">Add item</a>
+      <a *ngIf="loggedIn" class="mdl-navigation__link" routerLink="/scanner">Scan item</a>
+      <a *ngIf="loggedIn" class="mdl-navigation__link" routerLink="/profile">Profile</a>
+      <a *ngIf="loggedIn" class="mdl-navigation__link" routerLink="/settings">Settings</a>
+      <a *ngIf="isAdmin" class="mdl-navigation__link" routerLink="/bcds">Add item to database</a>
+      <a *ngIf="isAdmin" class="mdl-navigation__link" routerLink="/stats">Statistics / Info</a>
+      <a *ngIf="!loggedIn && router.url !== '/login'" class="mdl-navigation__link" routerLink="/login">Login</a>
+      <a *ngIf="!loggedIn && router.url !== '/register'" class="mdl-navigation__link" routerLink="/register">Register</a>
+      <a class="mdl-navigation__link" (click)="reloadApp()">Reload app</a>
+      <a *ngIf="loggedIn" (click)="logOut()" class="mdl-navigation__link">Log out</a>
+      <a class="mdl-navigation__link" routerLink="/about">About shoplistic</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <!-- Your content goes here -->
+      <router-outlet></router-outlet>
+      <div [hidden]="online" class="offline">
+        You're currently offline!
+      </div>
+      <app-info-bar></app-info-bar>
+    </div>
+  </main>
+</div>

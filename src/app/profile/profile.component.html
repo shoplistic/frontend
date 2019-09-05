@@ -1,0 +1,69 @@
+<form>
+  <ul class="mdl-list">
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" readonly [value]="userData.username" />
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="regdate">Register date</label>
+        <input type="text" id="regdate" readonly [value]="regDate" />
+      </div>
+    </li>
+  </ul>
+</form>
+
+<form #prForm="ngForm" (ngSubmit)="prSubmit()">
+  <ul class="mdl-list">
+    <li class="mdl-list__item">
+      <h2>Reset password</h2>
+    </li>
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="old_password">Old password</label>
+        <input id="old_password" type="password" name="old_password" autocomplete="password" required [(ngModel)]="passwordReset.old_password" #old_password="ngModel" pattern=".{8,1000}" [class.invalid]="old_password.invalid && old_password.touched && old_password.dirty" />
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="new_password">New password</label>
+        <input id="new_password" type="password" name="new_password" autocomplete="new-password" required [(ngModel)]="passwordReset.new_password" #new_password="ngModel" pattern=".{8,1000}" [class.invalid]="new_password.invalid && new_password.touched && new_password.dirty" />
+        <small [hidden]="new_password.valid || new_password.untouched || new_password.pristine">Password have to be betwen 8 and 1000 characters</small>
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <div class="input-group">
+        <label for="password_repeat">Repeat Password</label>
+        <input id="password_repeat" type="password" name="password_repeat" autocomplete="new-password" required [(ngModel)]="passwordReset.password_repeat" #password_repeat="ngModel" pattern=".{8,1000}" [class.invalid]="new_password.value !== password_repeat.value && new_password.touched && new_password.dirty" />
+        <small [hidden]="password_repeat.value === new_password.value || !password_repeat.dirty">Password does not match</small>
+      </div>
+    </li>
+    <li class="mdl-list__item">
+      <button class="mdl-button mdl-js-button mdl-button--primary" type="submit" [disabled]="prForm.form.invalid || submitted || new_password.value !== password_repeat.value">
+        Reset password
+      </button>
+    </li>
+    <li class="mdl-list__item">
+      <button class="mdl-button mdl-js-button mdl-button--accent" type="button" (click)="toggleDeleteModal()">
+        Delete account
+      </button>
+    </li>
+  </ul>
+</form>
+
+<div #deleteModal class="deleteModal">
+  <div class="shadow"></div>
+  <div class="content">
+    <p>Are you sure you want to delete your account? This can not be undone!</p>
+    <div class="ilb">
+      <button class="mdl-button mdl-js-button mdl-button--primary" (click)="toggleDeleteModal()">
+        No
+      </button>
+      <button class="mdl-button mdl-js-button mdl-button--accent" (click)="deleteProfileSubmit()">
+        Yes, delete
+      </button>
+    </div>
+  </div>
+</div>
