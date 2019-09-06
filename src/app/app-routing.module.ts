@@ -70,7 +70,7 @@ const routes: Routes = [
   {
     path: 'donotgohere',
     component: DevComponent
-  }
+  },
   {
     path: '**',
     component: Error404Component,
