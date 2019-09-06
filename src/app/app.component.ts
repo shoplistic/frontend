@@ -11,8 +11,8 @@ import { PwaService } from './_services/pwa.service';
 
 export class AppComponent implements AfterViewInit, DoCheck {
 
-  @ViewChild('sidebar') sidebar: ElementRef;
-  @ViewChild('mdll') mdll: ElementRef;
+  @ViewChild('sidebar', { static: true }) sidebar: ElementRef;
+  @ViewChild('mdll', { static: true }) mdll: ElementRef;
 
   online = false;
   loggedIn = false;

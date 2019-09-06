@@ -12,7 +12,7 @@ import { InfoBarService } from '../_services/info-bar.service';
 })
 export class ScannerComponent implements AfterViewInit, OnDestroy {
 
-  @ViewChild('addModal') addModal: ElementRef;
+  @ViewChild('addModal', { static: true }) addModal: ElementRef;
 
   barcodeSamples: string[] = [];
   barcode = '';

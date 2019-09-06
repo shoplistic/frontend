@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  @ViewChild('deleteModal') deleteModal: ElementRef;
+  @ViewChild('deleteModal', { static: true }) deleteModal: ElementRef;
 
   userData = new UserData('', 0);
   regDate = '';

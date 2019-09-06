@@ -8,7 +8,7 @@ import { InfoBarService } from '../_services/info-bar.service';
 })
 export class InfoBarComponent implements DoCheck {
 
-  @ViewChild('ib') ib: ElementRef;
+  @ViewChild('ib', { static: true }) ib: ElementRef;
 
   timeout: number;
 

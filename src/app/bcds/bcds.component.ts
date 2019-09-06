@@ -11,8 +11,8 @@ import { InfoBarService } from '../_services/info-bar.service';
 })
 export class BcdsComponent implements AfterViewInit, OnDestroy {
 
-  @ViewChild('addModal') addModal: ElementRef;
-  @ViewChild('af') af: ElementRef;
+  @ViewChild('addModal', { static: true }) addModal: ElementRef;
+  @ViewChild('af', { static: true }) af: ElementRef;
 
   barcodeSamples: string[] = [];
   barcode = '';

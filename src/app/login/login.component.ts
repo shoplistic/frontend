@@ -10,7 +10,7 @@ import { UserLogin } from '../_classes/user-login';
 })
 export class LoginComponent implements AfterViewInit {
 
-  @ViewChild('af') af: ElementRef;
+  @ViewChild('af', { static: true }) af: ElementRef;
 
   submitted = false;
   loginData = new UserLogin('', '');

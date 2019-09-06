@@ -13,8 +13,8 @@ import { UserLogin } from '../_classes/user-login';
 })
 export class RegisterComponent implements AfterViewInit {
 
-  @ViewChild('af') af: ElementRef;
-  @ViewChild('re') re: RecaptchaComponent;
+  @ViewChild('af', { static: true }) af: ElementRef;
+  @ViewChild('re', { static: true }) re: RecaptchaComponent;
 
   siteKey = environment.siteKey;
 

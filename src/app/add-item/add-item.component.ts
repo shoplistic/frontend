@@ -11,7 +11,7 @@ import { Bcds } from '../_classes/bcds';
 })
 export class AddItemComponent implements AfterViewInit {
 
-  @ViewChild('af') af: ElementRef;
+  @ViewChild('af', { static: true }) af: ElementRef;
 
   item = new ShoppingListItem('', '', '', 1);
   datalist: Bcds[] = [];
