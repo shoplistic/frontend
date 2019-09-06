@@ -44,7 +44,7 @@ import { environment } from '../environments/environment';
 
 // reCaptcha
 import { RecaptchaModule } from 'ng-recaptcha';
-import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import { RecaptchaFormsModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
