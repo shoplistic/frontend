@@ -1,4 +1,4 @@
-<ul class="demo-list-control mdl-list">
+<!-- <ul class="demo-list-control mdl-list">
   <li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">
       <label for="dark-mode">Dark theme</label>
@@ -12,4 +12,66 @@
       </div>
     </span>
   </li>
+</ul> -->
+
+<ul>
+    <!-- <li>
+        <div class="text">
+            <span class="name">Dark Theme</span>
+            <span class="description">Join the dark side. Enable a darker theme.</span>
+        </div>
+        <div class="switch">
+            <input id="dark-theme" type="checkbox">
+            <label for="dark-theme"></label>
+        </div>
+    </li>
+    <li>
+        <div class="text">
+            <span class="name">ICA API</span>
+            <span class="description">Enable the ICA API. Scan times may be slower.</span>
+        </div>
+        <div class="switch">
+            <input id="ica-api" type="checkbox">
+            <label for="ica-api"></label>
+        </div>
+    </li> -->
+
+    <li *ngFor="let s of settings">
+
+        <ng-template [ngIf]="s.type === 'Boolean'">
+            <div class="text">
+                <span class="name">{{ s.prettyName }}</span>
+                <span class="description">{{ s.description }}</span>
+            </div>
+            <div class="switch">
+                <input (change)="s.set(!s.get())" type="checkbox" [checked]="s.get()" id="{{ s.name }}">
+                <label for="{{ s.name }}"></label>
+            </div>
+        </ng-template>
+
+
+        <!-- <ng-template [ngIf]="s.type === 'Number'">
+            <div class="text">
+                <span class="name">{{ s.prettyName }}</span>
+                <span class="description">{{ s.description }}</span>
+            </div>
+            <div class="switch">
+                <input (change)="s.set(!s.get())" type="checkbox" [checked]="s.get()" id="{{ s.name }}">
+                <label for="{{ s.name }}"></label>
+            </div>
+        </ng-template> -->
+
+        <!-- <ng-template [ngIf]="s.type === 'String'">
+            <div class="text">
+                <span class="name">{{ s.prettyName }}</span>
+                <span class="description">{{ s.description }}</span>
+            </div>
+            <div class="switch">
+                <input (change)="s.set(!s.get())" type="checkbox" [checked]="s.get()" id="{{ s.name }}">
+                <label for="{{ s.name }}"></label>
+            </div>
+        </ng-template> -->
+
+    </li>
+
 </ul>

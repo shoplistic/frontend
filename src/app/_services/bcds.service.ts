@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { resolve as urlResolve } from 'url';
 import { Bcds } from '../_classes/bcds';
+import { SettingsService } from '../_services/settings.service';
 
 
 @Injectable({
@@ -10,11 +11,15 @@ import { Bcds } from '../_classes/bcds';
 })
 export class BcdsService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(
+    private _http: HttpClient,
+    private _settings: SettingsService
+  ) { }
 
   get(barcode: string) {
 
-    return this._http.get<Bcds>(urlResolve(environment.apiUrl, `bcds/${barcode}`));
+    const useIcaApi: number = this._settings.settings.icaApi.get() ? 1 : 0;
+    return this._http.get<Bcds>(urlResolve(environment.apiUrl, `bcds/${barcode}?ica=${useIcaApi}`));
 
   }
 

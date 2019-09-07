@@ -31,6 +31,7 @@ import { ThemeService } from './_services/theme.service';
 import { TokenInterceptorService } from './_services/token-interceptor.service';
 import { UnauthInterceptorService } from './_services/unauth-interceptor.service';
 import { StatsService } from './_services/stats.service';
+import { SettingsService } from './_services/settings.service';
 
 // Guards
 import { AuthGuard } from './_guards/auth.guard';
@@ -81,6 +82,7 @@ import { RecaptchaFormsModule } from 'ng-recaptcha';
     ProfileService,
     InfoBarService,
     StatsService,
+    SettingsService,
     AuthGuard,
     AdminGuard,
     {

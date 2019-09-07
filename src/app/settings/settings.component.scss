@@ -1,98 +1,82 @@
 ul {
   max-width: 600px;
-  margin: auto;
-}
+  margin: 2rem auto;
+  padding: 0;
 
+  li {
 
-// Thanks to https://codepen.io/rkchauhan/pen/ONJEYL
-// Checkbox Color
-$btn_lightBlue: #2196f3;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: auto 50px;
+    padding: 1rem 2rem;
 
-.rkmd-checkbox {
-  color: #818181;
-  font-size: 15px;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: .5px;
+    div.text {
+      grid-column: 1;
+      padding-right: 1rem;
 
-  .input-checkbox {
-    position: relative;
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    text-align: center;
-    vertical-align: -9px;
-
-    input[type="checkbox"] {
-      visibility: hidden;
-      position: absolute;
-      left: 7px;
-      bottom: 7px;
-      margin: 0;
-      padding: 0;
-      outline: none;
-      cursor: pointer;
-      opacity: 0;
-
-      &+.checkbox:before {
-        position: absolute;
-        left: 4px;
-        bottom: 8px;
-        width: 18px;
-        height: 18px;
-        font-family: 'Material Icons';
-        font-weight: normal;
-        font-style: normal;
-        font-size: 24px;
-        line-height: 1;
-        text-transform: none;
-        letter-spacing: normal;
-        word-wrap: normal;
-        white-space: nowrap;
-        direction: ltr;
-        vertical-align: -6px;
-
-        /* Support for all WebKit browsers. */
-        -webkit-font-smoothing: antialiased;
-        /* Support for Safari and Chrome. */
-        text-rendering: optimizeLegibility;
-
-        /* Support for Firefox. */
-        -moz-osx-font-smoothing: grayscale;
-
-        /* Support for IE. */
-        font-feature-settings: 'liga';
-
-        transition: all .2s ease;
-        z-index: 1;
+      span.name {
+        display: block;
+        font-weight: bolder;
       }
 
-      &+.checkbox:before {
-        content: "\e835";
-        color: #717171;
+      span.description {
+        font-style: italic;
+        color: #666;
       }
 
-      &:checked+.checkbox:before {
-        content: "\e834";
-      }
-
-      &:active:not(:disabled)+.checkbox:before {
-        transform: scale3d(0.88, 0.88, 1);
-      }
-
-      &:disabled+.checkbox:before {
-        color: rgba(0, 0, 0, 0.157) !important;
-      }
     }
 
-    input[type="checkbox"]:checked+.checkbox:before {
-      color: $btn_lightBlue;
+    div.switch {
+      grid-column: 2;
+      // float: right;
+      // width: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      label {
+        margin-top: -2pt;
+        display: inline-block;
+        cursor: pointer;
+
+        &::before {
+          display: block;
+          width: 28pt;
+          height: 16pt;
+          content: '';
+          background-color: #9e9e9e;
+          border-radius: 7pt;
+          transition: background-color 0.15s ease-in-out;
+        }
+
+        &::after {
+          height: 10pt;
+          width: 10pt;
+          border-radius: 8pt;
+          display: block;
+          content: '';
+          background-color: #fff;
+          margin-top: -13pt;
+          margin-left: 3pt;
+          transition: margin-left 0.15s ease-in-out;
+        }
+
+      }
+
+      input[type=checkbox] {
+        display: none;
+      }
+
+      input[type=checkbox]:checked + label::before {
+          background-color: rgb(33,150,243);
+      }
+
+      input[type=checkbox]:checked + label::after {
+          margin-left: 15pt;
+      }
+
     }
 
   }
 
-  label,
-  .label {
-    cursor: pointer;
-  }
 }
