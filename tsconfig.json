@@ -18,6 +18,12 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+        "@env/*": ["src/environments/*"],
+        "@class/*": ["src/app/_classes/*"],
+        "@guard/*": ["src/app/_guards/*"],
+        "@service/*": ["src/app/_services/*"]
+    }
   }
 }
