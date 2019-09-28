@@ -10,16 +10,19 @@ export class AboutComponent implements OnInit {
 
   constructor(private _stats: StatsService) { }
 
-  version: string | null = null;
+  appVersion: string | null = null;
+  serverVersion: string | null = null;
   year = new Date().getFullYear();
 
   ngOnInit() {
     this._stats.version().subscribe(
       res => {
-        this.version = res.version;
+        this.appVersion = res.frontend.version;
+        this.serverVersion = res.backend.version;
       },
       _err => {
-        this.version = 'Error fetching version';
+        this.appVersion = 'Error fetching version.';
+        this.serverVersion = 'Error fetching version.';
       }
     );
   }
