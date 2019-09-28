@@ -71,12 +71,7 @@ export class RegisterComponent implements AfterViewInit {
         },
         err => {
           this.submitted = false;
-
-          if (err.status === 409) {
-            this.error = 'Username is already taken';
-          } else {
-            this.error = err.error.message ? err.error.message : err.message;
-          }
+          this.error = err === 'Conflict' ? 'Username already taken.' : err;
         }
       );
 
