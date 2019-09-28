@@ -2,6 +2,9 @@ import { Component, AfterViewInit, ViewChild, ElementRef, DoCheck } from '@angul
 import { Router } from '@angular/router';
 import { AuthService } from './_services/auth.service';
 import { PwaService } from './_services/pwa.service';
+import { UpdaterService } from '@service/updater.service';
+import { InfoBarService } from '@service/info-bar.service'
+import { SettingsService } from '@service/settings.service';
 
 @Component({
   selector: 'app-root',
@@ -19,9 +22,35 @@ export class AppComponent implements AfterViewInit, DoCheck {
   isAdmin = false;
   title = 'Shoplistic';
 
-  constructor(private _auth: AuthService, public router: Router, public pwa: PwaService) {
+  constructor(
+    private _auth: AuthService,
+    private _updater: UpdaterService,
+    private _infoBar: InfoBarService,
+    private _settings: SettingsService,
+    public router: Router,
+    public pwa: PwaService
+  ) {
 
     this.online = navigator.onLine;
+
+    if (this._settings.settings.automaticUpdates.get()) {
+
+      (async () => {
+        if (await this._updater.updateAvailable()) {
+          console.log('Update available');
+          if (await this._updater.update()) {
+            console.log('Updated successfully');
+          } else {
+            console.log('Failed to update');
+            this._infoBar.show('Failed to update');
+          }
+        }
+      })().catch(e => {
+        console.warn('Failed to check for updates!', e);
+        this._infoBar.show('Failed to check for updates');
+      });
+
+    }
 
   }
 
@@ -81,8 +110,11 @@ export class AppComponent implements AfterViewInit, DoCheck {
 
   }
 
-  reloadApp() {
-    location.reload(true);
+  async reloadApp() {
+    // location.reload(true);
+    if (!await this._updater.update()) {
+      this._infoBar.show('Failed to update');
+    }
   }
 
   logOut() {

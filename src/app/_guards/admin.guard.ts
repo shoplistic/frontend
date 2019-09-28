@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate, Router, UrlTree } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
-  canActivate(): boolean {
+  canActivate(): boolean | UrlTree {
 
-    return !!localStorage.getItem('admin');
+    if (!!localStorage.getItem('admin')) {
+        return true;
+    } else {
+        return this._router.parseUrl('/');
+    }
 
   }
 
