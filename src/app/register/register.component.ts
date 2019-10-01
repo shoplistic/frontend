@@ -5,6 +5,7 @@ import { UserRegister } from '@class/user-register';
 import { environment } from '@env/environment';
 import { RecaptchaComponent } from 'ng-recaptcha';
 import { UserLogin } from '@class/user-login';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,7 @@ export class RegisterComponent implements AfterViewInit {
   @ViewChild('re', { static: true }) re: RecaptchaComponent;
 
   siteKey = environment.siteKey;
+  production = environment.production;
 
   submitted = false;
   registerData = new UserRegister('', '', '', '');
@@ -71,10 +73,16 @@ export class RegisterComponent implements AfterViewInit {
           this.submitted = true;
           this.ok = 'Account created! Click the login button to proceed.';
         },
-        err => {
-          console.log(typeof err);
+        (err: HttpErrorResponse) => {
+          console.log(err);
           this.submitted = false;
-          this.error = err === 'Conflict' ? 'Username already taken.' : err;
+          if (err.status === 0) {
+            this.error = 'Could not reach server, please check your connection and try again';
+          } else if (err.status === 409) {
+            this.error = 'Username is already taken';
+          } else {
+            this.error = err.statusText;
+          }
         }
       );
 

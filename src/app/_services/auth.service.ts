@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   register(user: UserRegister) {
-    return this._http.post<UserRegisterResponse>(urlResolve(environment.apiUrl, 'user'), user, { observe: 'response' });
+    return this._http.post<UserRegisterResponse>(urlResolve(environment.apiUrl, 'user'), user);
   }
 
   loggedIn() {

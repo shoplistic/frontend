@@ -35,10 +35,10 @@
     <div class="page-content">
       <!-- Your content goes here -->
       <router-outlet></router-outlet>
+      <app-info-bar></app-info-bar>
       <div [hidden]="online" class="offline">
         You're currently offline!
       </div>
-      <app-info-bar></app-info-bar>
     </div>
   </main>
 </div>
