@@ -8,7 +8,7 @@ export class AdminGuard implements CanActivate {
 
   constructor(private _router: Router) { }
 
-  canActivate(): boolean | UrlTree {
+  canActivate(): true | UrlTree {
 
     if (!!localStorage.getItem('admin')) {
         return true;

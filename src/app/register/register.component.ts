@@ -67,9 +67,12 @@ export class RegisterComponent implements AfterViewInit {
     this._auth.register(this.registerData)
       .subscribe(
         _res => {
+          console.log(_res);
+          this.submitted = true;
           this.ok = 'Account created! Click the login button to proceed.';
         },
         err => {
+          console.log(typeof err);
           this.submitted = false;
           this.error = err === 'Conflict' ? 'Username already taken.' : err;
         }
