@@ -1,19 +1,26 @@
 <div class="stats">
 
-  <p>
-    Version: {{ version }}
-  </p>
+    <section>
+        <h4>App</h4>
+        <b>Version:</b> {{ frontend.version }} <br />
+        <b>Updated:</b> {{ frontend.updated }}
+    </section>
 
-  <p>
-    Items in database: {{ stats.bcds_entries }}
-  </p>
+    <section>
+        <h4>Server</h4>
+        <b>Version:</b> {{ backend.version }} <br />
+        <b>Updated:</b> {{ backend.updated }} <br />
+        <b>Uptime:</b> {{ uptime }}
+    </section>
 
-  <p>
-    Registerd users: {{ stats.registerd_users }}
-  </p>
+    <section>
+        <h4>Database (Mongo)</h4>
+        <b>Users:</b> {{ stats.registerd_users }}
+    </section>
 
-  <p>
-    Uptime: {{ uptime }}
-  </p>
+    <section>
+        <h4>Database BCDS (Postgres)</h4>
+        <b>Items:</b> {{ stats.bcds_entries }}
+    </section>
 
 </div>

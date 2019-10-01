@@ -13,8 +13,14 @@ export class Stats {
 
 }
 
-interface IVersion {
-  version: string;
+interface ServiceVersion {
+    version: string;
+    updated: number;
+}
+
+interface VersionResponse {
+    backend: ServiceVersion;
+    frontend: ServiceVersion;
 }
 
 @Injectable({
@@ -29,7 +35,7 @@ export class StatsService {
   }
 
   version() {
-    return this._http.get<IVersion>(urlResolve(environment.apiUrl, '/version'));
+    return this._http.get<VersionResponse>(urlResolve(environment.apiUrl, 'version'));
   }
 
 }

@@ -2,6 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { StatsService, Stats } from '../_services/stats.service';
 import { InfoBarService } from '../_services/info-bar.service';
 
+interface ServiceVersion {
+    version: string;
+    updated: number;
+}
+
+class ServiceInfo {
+
+    updated: string;
+    version: string;
+
+    constructor(_sv: ServiceVersion) {
+        this.version = _sv.version;
+        this.updated = new Date(_sv.updated).toLocaleString();
+    }
+
+}
+
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
@@ -9,7 +26,8 @@ import { InfoBarService } from '../_services/info-bar.service';
 })
 export class StatsComponent implements OnInit {
 
-  version: string;
+  frontend: ServiceInfo = new ServiceInfo({ version: '', updated: 0 });
+  backend: ServiceInfo = new ServiceInfo({ version: '', updated: 0 });
   stats: Stats = new Stats(0, 0, 0);
   uptime: string;
 
@@ -19,7 +37,8 @@ export class StatsComponent implements OnInit {
 
     this._stats.version().subscribe(
       res => {
-        this.version = res.version;
+        this.frontend = new ServiceInfo(res.frontend);
+        this.backend = new ServiceInfo(res.backend);
       },
       _err => {
         this._infoBarService.show('Error fetching version', 3e3);

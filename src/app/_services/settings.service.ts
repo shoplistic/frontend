@@ -9,14 +9,27 @@ export class SettingsService {
   constructor() { }
 
   public settings /*: ISettings*/ = {
-    // darkMode: new Setting('dark-mode', 'Boolean', 'Dark Theme', false, 'Join the dark side. Enable a darker theme.'),
     icaApi: new Setting(
       'ica-api',
       'Boolean',
       'ICA API',
       false,
       'Enable the ICA API. Scan times may be slower.'
-    )
+    ),
+    automaticUpdates: new Setting(
+        'automatic-updates',
+        'Boolean',
+        'Automatic Updates',
+        true,
+        'Enable automatic updates. Turning this is may lead to the app not working.'
+    ),
+    // darkMode: new Setting(
+    //     'dark-mode',
+    //     'Boolean',
+    //     'Dark Theme',
+    //     false,
+    //     'Join the dark side. Enable a darker theme.'
+    // ),
   };
 
   public reset() {

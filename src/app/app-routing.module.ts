@@ -56,6 +56,11 @@ const routes: Routes = [
     canActivate: [AuthGuard, AdminGuard]
   },
   {
+    path: 'devcompononent',
+    component: DevComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
@@ -68,11 +73,8 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
-    path: 'donotgohere',
-    component: DevComponent
-  },
-  {
     path: '**',
+    pathMatch: 'full',
     component: Error404Component,
     canActivate: [AuthGuard]
   },
