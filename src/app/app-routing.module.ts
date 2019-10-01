@@ -16,8 +16,8 @@ import { StatsComponent } from './stats/stats.component';
 import { DevComponent } from './dev/dev.component';
 
 // Guards
-import { AuthGuard } from './_guards/auth.guard';
-import { AdminGuard } from './_guards/admin.guard';
+import { AuthGuard } from '@guard/auth.guard';
+import { AdminGuard } from '@guard/admin.guard';
 
 const routes: Routes = [
   {

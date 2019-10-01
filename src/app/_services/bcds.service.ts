@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment } from '@env/environment';
 import { resolve as urlResolve } from 'url';
-import { Bcds } from '../_classes/bcds';
-import { SettingsService } from '../_services/settings.service';
+import { Bcds } from '@class/bcds';
+import { SettingsService } from '@service/settings.service';
 
 
 @Injectable({

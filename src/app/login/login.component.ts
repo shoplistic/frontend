@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
+import { AuthService } from '@service/auth.service';
 import { Router } from '@angular/router';
-import { UserLogin } from '../_classes/user-login';
+import { UserLogin } from '@class/user-login';
 
 @Component({
   selector: 'app-login',

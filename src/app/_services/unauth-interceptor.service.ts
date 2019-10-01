@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpErrorResponse, HttpRequest, HttpHandler } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthService } from '../_services/auth.service';
+import { AuthService } from '@service/auth.service';
 // import 'rxjs/add/operator/do'; // rxjs-compat Angular 6
 import { catchError } from 'rxjs/operators'; // Angular 7+
 import { throwError } from 'rxjs';

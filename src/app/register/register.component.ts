@@ -1,10 +1,10 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
+import { AuthService } from '@service/auth.service';
 import { Router } from '@angular/router';
-import { UserRegister } from '../_classes/user-register';
-import { environment } from '../../environments/environment';
+import { UserRegister } from '@class/user-register';
+import { environment } from '@env/environment';
 import { RecaptchaComponent } from 'ng-recaptcha';
-import { UserLogin } from '../_classes/user-login';
+import { UserLogin } from '@class/user-login';
 
 @Component({
   selector: 'app-register',

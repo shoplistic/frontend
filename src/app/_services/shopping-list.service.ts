@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment } from '@env/environment';
 import { resolve as urlResolve } from 'url';
-import { ShoppingListItem, IShoppingListItem } from '../_classes/shopping-list-item';
-import { Bcds } from '../_classes/bcds';
+import { ShoppingListItem, IShoppingListItem } from '@class/shopping-list-item';
+import { Bcds } from '@class/bcds';
 
 @Injectable({
   providedIn: 'root'

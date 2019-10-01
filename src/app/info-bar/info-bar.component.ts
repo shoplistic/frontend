@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, DoCheck } from '@angular/core';
-import { InfoBarService } from '../_services/info-bar.service';
+import { InfoBarService } from '@service/info-bar.service';
 
 @Component({
   selector: 'app-info-bar',

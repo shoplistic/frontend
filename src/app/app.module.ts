@@ -35,14 +35,14 @@ import { SettingsService } from './_services/settings.service';
 import { UpdaterService } from './_services/updater.service';
 
 // Guards
-import { AuthGuard } from './_guards/auth.guard';
-import { AdminGuard } from './_guards/admin.guard';
+import { AuthGuard } from '@guard/auth.guard';
+import { AdminGuard } from '@guard/admin.guard';
 
 // Service worker
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 // Environment
-import { environment } from '../environments/environment';
+import { environment } from '@env/environment';
 
 // reCaptcha
 import { RecaptchaModule } from 'ng-recaptcha';
