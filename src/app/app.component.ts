@@ -37,11 +37,9 @@ export class AppComponent implements AfterViewInit, DoCheck {
 
       (async () => {
         if (await this._updater.updateAvailable()) {
-          console.log('Update available');
           if (await this._updater.update()) {
             console.log('Updated successfully');
           } else {
-            console.log('Failed to update');
             this._infoBar.show('Failed to update');
           }
         }

@@ -48,8 +48,10 @@ export class UpdaterService {
     }
 
     let success = true;
-    success = success && await this.clearCache();
-    success = success && await this.updateSW();
+    if (location.protocol === 'https:' || location.hostname === 'localhost') {
+      success = success && await this.clearCache();
+      success = success && await this.updateSW();
+    }
     success = success && Boolean(this.newVersion);
 
     if (success) {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Setting } from '../_classes/setting';
+import { Setting } from '@class/setting';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class SettingsService {
         'Boolean',
         'Automatic Updates',
         true,
-        'Enable automatic updates. Turning this is may lead to the app not working.'
+        'Enable automatic updates. Turning this off may lead to the app not working.'
     ),
     // darkMode: new Setting(
     //     'dark-mode',

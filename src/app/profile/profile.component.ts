@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ProfileService } from '../_services/profile.service';
-import { UserData, PasswordReset } from '../_classes/user-data';
-import { InfoBarService } from '../_services/info-bar.service';
-import { AuthService } from '../_services/auth.service';
+import { ProfileService } from '@service/profile.service';
+import { UserData, PasswordReset } from '@class/user-data';
+import { InfoBarService } from '@service/info-bar.service';
+import { AuthService } from '@service/auth.service';
 import { Router } from '@angular/router';
 
 @Component({

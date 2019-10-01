@@ -1,8 +1,8 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { ShoppingListItem } from '../_classes/shopping-list-item';
-import { ShoppingListService } from '../_services/shopping-list.service';
-import { InfoBarService } from '../_services/info-bar.service';
-import { Bcds } from '../_classes/bcds';
+import { ShoppingListItem } from '@class/shopping-list-item';
+import { ShoppingListService } from '@service/shopping-list.service';
+import { InfoBarService } from '@service/info-bar.service';
+import { Bcds } from '@class/bcds';
 
 @Component({
   selector: 'app-add-item',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StatsService, Stats } from '../_services/stats.service';
-import { InfoBarService } from '../_services/info-bar.service';
+import { StatsService, Stats } from '@service/stats.service';
+import { InfoBarService } from '@service/info-bar.service';
 
 interface ServiceVersion {
     version: string;

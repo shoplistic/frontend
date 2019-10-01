@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IShoppingListItem } from '../_classes/shopping-list-item';
-import { ShoppingListService } from '../_services/shopping-list.service';
-import { InfoBarService } from '../_services/info-bar.service';
+import { IShoppingListItem } from '@class/shopping-list-item';
+import { ShoppingListService } from '@service/shopping-list.service';
+import { InfoBarService } from '@service/info-bar.service';
 
 @Component({
   selector: 'app-list',

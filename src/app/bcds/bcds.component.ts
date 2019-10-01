@@ -1,8 +1,8 @@
 import { Component, AfterViewInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import * as Quagga from 'quagga';
-import { Bcds } from '../_classes/bcds';
-import { BcdsService } from '../_services/bcds.service';
-import { InfoBarService } from '../_services/info-bar.service';
+import { Bcds } from '@class/bcds';
+import { BcdsService } from '@service/bcds.service';
+import { InfoBarService } from '@service/info-bar.service';
 
 @Component({
   selector: 'app-bcds',

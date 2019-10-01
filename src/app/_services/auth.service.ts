@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserLogin, UserLoginResponse } from '../_classes/user-login';
-import { UserRegister, UserRegisterResponse } from '../_classes/user-register';
-import { environment } from '../../environments/environment';
+import { UserLogin, UserLoginResponse } from '@class/user-login';
+import { UserRegister, UserRegisterResponse } from '@class/user-register';
+import { environment } from '@env/environment';
 import { resolve as urlResolve } from 'url';
 
 @Injectable({
