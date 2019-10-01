@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@env/environment';
 import { resolve as urlResolve } from 'url';
+import { VersionResponse } from '@class/service-info';
 
 export class Stats {
 
@@ -11,16 +12,6 @@ export class Stats {
     public uptime: number
   ) {}
 
-}
-
-interface ServiceVersion {
-    version: string;
-    updated: number;
-}
-
-interface VersionResponse {
-    backend: ServiceVersion;
-    frontend: ServiceVersion;
 }
 
 @Injectable({

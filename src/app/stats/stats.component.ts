@@ -1,23 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StatsService, Stats } from '@service/stats.service';
 import { InfoBarService } from '@service/info-bar.service';
-
-interface ServiceVersion {
-    version: string;
-    updated: number;
-}
-
-class ServiceInfo {
-
-    updated: string;
-    version: string;
-
-    constructor(_sv: ServiceVersion) {
-        this.version = _sv.version;
-        this.updated = new Date(_sv.updated).toLocaleString();
-    }
-
-}
+import { ServiceInfo } from '@class/service-info';
 
 @Component({
   selector: 'app-stats',
