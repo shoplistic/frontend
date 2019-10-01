@@ -33,6 +33,7 @@ export class AppComponent implements AfterViewInit, DoCheck {
 
     this.online = navigator.onLine;
 
+    // TODO: Alert the user instead of just updating?
     if (this._settings.settings.automaticUpdates.get()) {
 
       (async () => {

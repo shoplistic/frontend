@@ -26,14 +26,20 @@
     </li>
     <li class="mdl-list__item buttons">
       <div class="right-align">
-        <!-- <button (click)="login()" class="mdl-button" type="button" routerLink="/login"> -->
         <button (click)="login()" type="button" class="mdl-button" type="button">
           Log in
         </button>
-        <!-- <button class="mdl-button mdl-button--raised mdl-button--colored" type="submit" [disabled]="registerForm.form.invalid || submitted || password.value !== password_repeat.value"> -->
-        <button (click)="re.execute()" type="button" class="mdl-button mdl-button--raised mdl-button--colored" [disabled]="registerForm.form.invalid || submitted || password.value !== password_repeat.value">
-          Register
-        </button>
+        <ng-template [ngIf]="production === true">
+          <button (click)="re.execute()" type="button" class="mdl-button mdl-button--raised mdl-button--colored" [disabled]="registerForm.form.invalid || submitted || password.value !== password_repeat.value">
+            Register
+          </button>
+        </ng-template>
+        <ng-template [ngIf]="production === false">
+          <button (click)="register()" type="button" class="mdl-button mdl-button--raised mdl-button--colored" [disabled]="registerForm.form.invalid || submitted || password.value !== password_repeat.value">
+            Register (no reCaptcha)
+          </button>
+        </ng-template>
+
       </div>
     </li>
     <li class="mdl-list__item">

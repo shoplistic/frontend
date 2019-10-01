@@ -43,8 +43,10 @@ export class UnauthInterceptorService implements HttpInterceptor {
         this._router.navigate(['/login']);
       }
 
-      const error = err.error.message || err.statusText;
-      return throwError(error);
+      // const error = err.error.message || err.statusText;
+      // return throwError(error);
+
+      return throwError(err);
 
     }));
 

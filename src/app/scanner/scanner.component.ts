@@ -70,7 +70,7 @@ export class ScannerComponent implements AfterViewInit, OnDestroy {
           this.err = err;
           return;
         }
-        console.log('Initialization finished. Ready to start');
+        // console.log('Initialization finished. Ready to start');
         Quagga.start();
       }
     );
@@ -163,8 +163,6 @@ export class ScannerComponent implements AfterViewInit, OnDestroy {
 
   submit(item: Bcds) {
 
-    console.log(item);
-    console.log('submitted');
     this.toggleAddModal();
 
     this._shoppinglistService.add({

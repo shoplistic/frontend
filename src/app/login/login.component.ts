@@ -42,12 +42,18 @@ export class LoginComponent implements AfterViewInit {
           }
         },
         err => {
-          console.log(err);
           this.submitted = false;
-          if (err.status === 401) {
+          // if (err.status === 401) {
+          //   this.error = 'Invalid credentials';
+          // } else {
+          //   // this.error = err.error.message ? err.error.message : err.message;
+          // }
+          if (err.status === 0) {
+            this.error = 'Could not reach server, please check your connection and try again';
+          } else if (err.status === 401) {
             this.error = 'Invalid credentials';
           } else {
-            // this.error = err.error.message ? err.error.message : err.message;
+            this.error = err.statusText;
           }
         }
       );
