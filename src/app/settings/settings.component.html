@@ -36,7 +36,7 @@
         </div>
     </li> -->
 
-    <li *ngFor="let s of settings">
+    <li *ngFor="let s of settings" [class.not-supported]="!s.isSupported()">
 
         <ng-template [ngIf]="s.type === 'Boolean'">
             <div class="text">

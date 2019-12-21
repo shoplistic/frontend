@@ -12,8 +12,4 @@ export class DevComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleClick() {
-    console.log('click!');
-  }
-
 }

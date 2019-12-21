@@ -80,3 +80,17 @@ ul {
   }
 
 }
+
+.not-supported {
+  display: none !important;
+}
+
+// .not-supported {
+//   color: #888 !important;
+
+//   & .switch, .switch > * {
+//     pointer-events: none;
+//     touch-action: none;
+//   }
+
+// }

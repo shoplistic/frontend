@@ -13,6 +13,7 @@ export class AboutComponent implements OnInit {
   appVersion: string | null = null;
   serverVersion: string | null = null;
   year = new Date().getFullYear();
+  thirdPartyModal = false;
 
   ngOnInit() {
     this._stats.version().subscribe(
