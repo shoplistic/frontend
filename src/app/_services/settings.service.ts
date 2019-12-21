@@ -30,6 +30,19 @@ export class SettingsService {
     //     false,
     //     'Join the dark side. Enable a darker theme.'
     // ),
+    nativeScanner: new Setting(
+      'native-scanner',
+      'Boolean',
+      'Beta: Native Barcode Scanner',
+      false,
+      'Use a faster and better barcode scanner implementation.',
+      null,
+      () => {
+        // @ts-ignore
+        let supported = typeof Worker === 'function' && typeof BarcodeDetector === 'function';
+        return supported;
+      }
+    )
   };
 
   public reset() {

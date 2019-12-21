@@ -2,16 +2,27 @@
   <img src="/assets/icons/icon-384x384.png" alt="Shoplistic logo" />
   <h2>About Shoplistic</h2>
   <p>
-    App version: {{ appVersion }} <br/>
+    App version: {{ appVersion }} <br />
     Server version: {{ serverVersion }}
   </p>
   <p>
     Website: <a href="https://shoplistic.com" rel="noopener" target="_blank">shoplistic.com</a>
   </p>
   <p>
-    <a href="/3rdpartylicenses.txt">Third-party licenses</a>
+    <!-- <a href="/3rdpartylicenses.txt">Third-party licenses</a> -->
+    <button class="mdl-button mdl-js-button" (click)="thirdPartyModal=true">
+        Third-party licenses
+    </button>
   </p>
   <p>
     &copy; {{ year }} shoplistic.com All Rights Reserved
   </p>
+</div>
+
+<div *ngIf="thirdPartyModal" class="third-party">
+  <span>Third-party licenses</span>
+  <iframe src="/3rdpartylicenses.txt" frameborder="0"></iframe>
+  <button class="mdl-button mdl-button--raised mdl-button--colored" (click)="thirdPartyModal=false">
+      Close
+    </button>
 </div>

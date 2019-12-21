@@ -46,7 +46,7 @@ export class AppComponent implements AfterViewInit, DoCheck {
         }
       })().catch(e => {
         console.warn('Failed to check for updates!', e);
-        this._infoBar.show('Failed to check for updates');
+        this._infoBar.show('Failed to check for updates', 1000);
       });
 
     }

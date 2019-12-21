@@ -6,7 +6,8 @@ export class Setting {
         public prettyName: string,
         public defaultValue: any,
         public description?: string,
-        private cb?: (v?: any) => void
+        private cb?: (v?: any) => void,
+        private supported?: () => boolean
     ) { }
 
     public set(value: any) {
@@ -62,6 +63,16 @@ export class Setting {
 
     public reset() {
         this.set(this.defaultValue);
+    }
+
+    public isSupported(): boolean {
+
+        if (typeof this.supported === 'function') {
+            return this.supported()
+        } else {
+            return true;
+        }
+
     }
 
 }

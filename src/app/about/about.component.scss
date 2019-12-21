@@ -27,3 +27,34 @@ div.about {
   }
 
 }
+
+div.third-party {
+  top: 0;
+  left: 0;
+  display: block;
+  position: fixed;
+  // width: 90vw;
+  // height: 90vh;
+  width: calc(100% - 6em);
+  height: calc(100% - 9em);
+  margin: 3em;
+  margin-top: 6em;
+  // background-color: #f0f;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 3em auto 2.6em;
+  box-shadow: #999 0 0 10px 5px;
+
+  span {
+    font-size: 1.5em;
+    padding: 1em;
+  }
+
+  iframe {
+    height: calc(100% - 3em);
+    width: calc(100% - 2em);
+    padding: 1em;
+  }
+
+}
